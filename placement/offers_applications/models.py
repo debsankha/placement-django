@@ -10,12 +10,13 @@ class Recruiter(models.Model):
 	
 class Offer(models.Model):
 	recruiter=models.ForeignKey(Recruiter)
+	description=models.TextField()
 	minimum_cgpa=models.FloatField()
-	major_ph=models.BooleanField()
-	major_ch=models.BooleanField()
-	major_es=models.BooleanField()
-	major_bi=models.BooleanField()
-	major_ma=models.BooleanField()
+	major_ph=models.BooleanField(default=0)
+	major_ch=models.BooleanField(default=0)
+	major_es=models.BooleanField(default=0)
+	major_bi=models.BooleanField(default=0)
+	major_ma=models.BooleanField(default=0)
 	deadline=models.DateField()
 
 class Application(models.Model):
