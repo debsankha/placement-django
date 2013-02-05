@@ -5,17 +5,6 @@ from django.template import Context, loader
 from offers_applications.models import Recruiter, Offer, Application
 
 
-def index(request):#lists all offers
-	all_offers=Offer.objects.all()
-	context = Context({'all_offers_list': all_offers,})
-	return render(request,'offers/index.html',context)
-
-
-def show(request,offer_id):	#shows each offer
-	offer=Offer.objects.get(id=offer_id)
-	context=Context({'offer':offer})
-	return render(request,'offers/details.html',context)
-
 
 def apply(request,offer_id):	#apply for an application
 	applicant_uid=1		#to be obtained from auth system
