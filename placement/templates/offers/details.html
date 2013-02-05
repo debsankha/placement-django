@@ -1,0 +1,10 @@
+{% load url from future %}
+
+{% if offer %}
+<h4> {{offer.description}}</h4>
+Minimum CGPA: {{offer.minimum_cgpa}}
+<a href="{% url 'offers:apply' offer.id %}">Apply!</a>
+{% else %}
+    <p>No such offer exists.</p>
+{% endif %}
+

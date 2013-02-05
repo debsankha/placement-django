@@ -7,8 +7,10 @@ from offers_applications import offer_views
 
 #/offers/REGEX matches to func's we attach here
 urlpatterns = patterns('',
-    url(r'^$', offer_views.index, name='index'),
-    url(r'^$create', offer_views.create, name=''),
+    url(r'^$', offer_views.index, name='listing'),
+    url(r'^(?P<offer_id>\d+)/$', offer_views.show, name='details'),
+    url(r'^(?P<offer_id>\d+)/apply$', offer_views.apply, name='apply'),
+    url(r'^', offer_views.create, name=''),
 
 #Examples of more #urlpatterns:
     #url(r'^$', views.index, name='index'),
