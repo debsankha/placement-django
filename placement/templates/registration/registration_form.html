@@ -1,0 +1,9 @@
+
+{% load url from future %}
+
+<h5> Register for our Cool webiste</h5>
+
+<form action="{% url 'registration_register' %}" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>

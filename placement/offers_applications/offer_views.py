@@ -5,7 +5,6 @@ from django.template import Context, loader
 from offers_applications.models import Recruiter, Offer, Application
 
 
-
 def apply(request,offer_id):	#apply for an application
 	applicant_uid=1		#to be obtained from auth system
 #poll tathya.iiserkol.ac.in, check that applicant satisfies all criteria for the Application

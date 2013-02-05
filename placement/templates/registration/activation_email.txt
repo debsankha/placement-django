@@ -1,0 +1,8 @@
+{% load url from future %}
+Open this url to activate:
+
+{% url 'registration_activate' activation_key %}
+
+expiration_days is {{expiration_days}}.
+
+#What is this 'site' thing in the required context??:

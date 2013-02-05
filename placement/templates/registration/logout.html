@@ -1,0 +1,16 @@
+{% load url from future %}
+<!--
+Optional arguments:
+
+next_page: The URL to redirect to after logout.
+template_name: The full name of a template to display after logging the user out. Defaults to registration/logged_out.html if no argument is supplied.
+redirect_field_name: The name of a GET field containing the URL to redirect to after log out. Overrides next_page if the given GET parameter is passed.
+
+Template context:
+
+title: The string "Logged out", localized.
+site: The current Site, according to the SITE_ID setting. If you don't have the site framework installed, this will be set to an instance of RequestSite, which derives the site name and domain from the current HttpRequest.
+site_name: An alias for site.name. If you don't have the site framework installed, this will be set to the value of request.META['SERVER_NAME']. For more on sites, see The "sites" framework.
+
+-->
+<h4> {{title}} </h4>
