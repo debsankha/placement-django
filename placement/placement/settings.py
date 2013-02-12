@@ -1,4 +1,6 @@
 # Django settings for placement project.
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -21,6 +23,35 @@ DATABASES = {
 }
 
 
+
+
+#settings for ldap auth
+AUTH_LDAP_SERVER_URI = "ldap://10.0.1.31:389"
+
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=iiserkol,dc=ac,dc=in",
+    ldap.SCOPE_SUBTREE)
+
+# Populate the Django user from the LDAP directory.
+AUTH_LDAP_USER_ATTR_MAP = {
+	    "first_name": "givenName",
+	        "last_name": "sn",
+		    "email": "mail"
+}
+
+# Cache group memberships for an hour to minimize LDAP traffic
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 3600
+
+
+# Keep ModelBackend around for per-user permissions and maybe a local
+# superuser.
+AUTHENTICATION_BACKENDS = (
+    'django_auth_ldap.backend.LDAPBackend',
+        'django.contrib.auth.backends.ModelBackend',
+	)
+
+
+#Settings for sending emails
 EMAIL_HOST="smtp.gmail.com"
 EMAIL_PORT=587
 EMAIL_HOST_USER='django@debsankha.net'
