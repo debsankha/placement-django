@@ -29,7 +29,7 @@ DATABASES = {
 AUTH_LDAP_SERVER_URI = "ldap://10.0.1.31:389"
 
 AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=People,dc=iiserkol,dc=ac,dc=in",
-    ldap.SCOPE_SUBTREE)
+    ldap.SCOPE_SUBTREE,"(uid=%(user)s)")
 
 # Populate the Django user from the LDAP directory.
 AUTH_LDAP_USER_ATTR_MAP = {
